@@ -10,12 +10,18 @@ echo "127.0.0.1 $(hostname)" >> /etc/hosts
 # commented out due to: https://gist.github.com/shott85/f0d21282df40346ee9df
 
 # Get/execute bootstrap script
-cd /tmp
-git clone https://github.com/shott85/cjp-aws-cjoc-bootstrap
-chmod +x /tmp/cjp-aws-cjoc-bootstrap/bootstrap.sh
+#cd /tmp
+#git clone https://github.com/shott85/cjp-aws-cjoc-bootstrap
+#chmod +x /tmp/cjp-aws-cjoc-bootstrap/bootstrap.sh
+# commented out due to: https://gist.github.com/shott85/f23dcb1f8231463e8f0d
 
 # Execute it
-/tmp/cjp-aws-cjoc-bootstrap/bootstrap.sh
+#/tmp/cjp-aws-cjoc-bootstrap/bootstrap.sh
 
 # Remove the bootstrapping script remnants
-rm -rf /tmp/cjp-aws-cjoc-bootstrap
+#rm -rf /tmp/cjp-aws-cjoc-bootstrap
+
+# Execute bootstrap directly
+
+#associate this instance with an elastic IP
+aws ec2 associate-address --allocation-id eipalloc-01b26365
