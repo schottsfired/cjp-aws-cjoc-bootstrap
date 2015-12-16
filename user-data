@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Update hosts file with this auto-scaled instance's private IP
+echo "127.0.0.1 $(hostname)" >> /etc/hosts
+
+# Update packages
+sudo apt-get update
+sudo apt-get upgrade
+
+# Get/execute bootstrap script
+cd /tmp
+git clone https://github.com/shott85/cjp-aws-cjoc-bootstrap
+chmod +x /tmp/cjp-aws-cjoc-bootstrap/bootstrap.sh
+
+# Execute it
+/tmp/cjp-aws-cjoc-bootstrap/bootstrap.sh
+
+# Remove the bootstrapping script remnants
+rm -rf /tmp/cjp-aws-cjoc-bootstrap
