@@ -4,8 +4,9 @@
 echo "127.0.0.1 $(hostname)" >> /etc/hosts
 
 # Update packages
-sudo apt-get update
-sudo apt-get upgrade
+#sudo apt-get update
+#sudo apt-get upgrade
+# ^ is commented out due to: https://gist.github.com/shott85/f0d21282df40346ee9df
 
 # Get/execute bootstrap script
 cd /tmp
