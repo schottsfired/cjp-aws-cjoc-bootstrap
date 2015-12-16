@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # Update hosts file with this auto-scaled instance's private IP
+# or else get https://forums.aws.amazon.com/message.jspa?messageID=495274
 echo "127.0.0.1 $(hostname)" >> /etc/hosts
 
 # Update packages
 #sudo apt-get update
 #sudo apt-get upgrade
-# ^ is commented out due to: https://gist.github.com/shott85/f0d21282df40346ee9df
+# commented out due to: https://gist.github.com/shott85/f0d21282df40346ee9df
 
 # Get/execute bootstrap script
 cd /tmp
