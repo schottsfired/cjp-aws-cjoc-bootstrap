@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#associate this instance with an elastic IP (need inet access first)
+aws ec2 associate-address --allocation-id eipalloc-01b26365
+
+# Update hosts file
+echo "127.0.0.1 $(hostname)" >> /etc/hosts
+
 # Get/execute bootstrap script
 cd /tmp
 git clone https://github.com/shott85/cjp-aws-cjoc-bootstrap
