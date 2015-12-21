@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Get/execute bootstrap script
+# Get bootstrap script
 cd /tmp
 git clone https://github.com/shott85/cjp-aws-cjoc-bootstrap
 chmod +x /tmp/cjp-aws-cjoc-bootstrap/bootstrap.sh
@@ -8,5 +8,5 @@ chmod +x /tmp/cjp-aws-cjoc-bootstrap/bootstrap.sh
 # Execute it
 /tmp/cjp-aws-cjoc-bootstrap/bootstrap.sh
 
-# Remove the bootstrapping script remnants
+# Remove the script remnants
 rm -rf /tmp/cjp-aws-cjoc-bootstrap
