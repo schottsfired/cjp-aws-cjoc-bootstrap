@@ -5,7 +5,7 @@ echo "127.0.0.1 $(hostname)" >> /etc/hosts
 #sudo apt-get update
 #sudo apt-get -y upgrade
 
-#associate this instance with an elastic IP (need inet access first)
+#associate this instance with an elastic IP
 #aws ec2 associate-address --allocation-id eipalloc-01b26365
 
 # set JENKINS_HOME
