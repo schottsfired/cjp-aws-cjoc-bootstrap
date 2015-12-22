@@ -1,4 +1,4 @@
-# Update hosts file (with private IP?)
+# Update hosts file with private ip
 echo "127.0.0.1 $(hostname)" >> /etc/hosts
 
 # Update packages (several minutes)
