@@ -18,8 +18,12 @@ sudo mkdir /var/lib/cjoc
 sudo mount -t nfs 10.0.2.83:/var/lib/cjoc /var/lib/cjoc
 #TODO use elastic IP
 
-# set JENKINS_HOME
-export JENKINS_HOME=/var/lib/cjoc
+# stop jenkins
+sudo service jenkins-oc stop
+
+# update JENKINS_HOME
+sudo rm -rf /var/lib/jenkins-oc
+sudo ln -s /var/lib/cjoc /var/lib/jenkins-oc
 
 # restart Jenkins
-sudo service jenkins-oc restart
+sudo service jenkins-oc start
