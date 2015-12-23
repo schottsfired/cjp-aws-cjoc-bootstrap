@@ -12,19 +12,14 @@ sudo apt-get -y install awscli
 MY_INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id)
 aws ec2 associate-address --region us-east-1 --instance-id "$MY_INSTANCE_ID" --allocation-id eipalloc-01b26365
 
+# stop jenkins and purge default jenkins_home
+sudo service jenkins-oc stop
+sudo rm -rf /var/lib/jenkins-oc/*
+
 #mount NFS storage
 sudo apt-get -y install nfs-common
-sudo mkdir /var/lib/cjoc
-sudo chmod 777 cjoc #TODO tie to 'ubuntu' user
-sudo mount -t nfs 10.0.2.83:/var/lib/cjoc /var/lib/cjoc
+sudo mount -t nfs 10.0.2.83:/var/lib/cjoc /var/lib/jenkins-oc
 #TODO use elastic IP
 
-# stop jenkins
-sudo service jenkins-oc stop
-
-# update JENKINS_HOME
-sudo rm -rf /var/lib/jenkins-oc
-sudo ln -s /var/lib/cjoc /var/lib/jenkins-oc
-
-# restart Jenkins
+# start Jenkins
 sudo service jenkins-oc start
