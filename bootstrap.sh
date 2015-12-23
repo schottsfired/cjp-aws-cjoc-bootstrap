@@ -15,6 +15,7 @@ aws ec2 associate-address --region us-east-1 --instance-id "$MY_INSTANCE_ID" --a
 #mount NFS storage
 sudo apt-get -y install nfs-common
 sudo mkdir /var/lib/cjoc
+sudo chmod 777 cjoc #TODO tie to 'ubuntu' user
 sudo mount -t nfs 10.0.2.83:/var/lib/cjoc /var/lib/cjoc
 #TODO use elastic IP
 
