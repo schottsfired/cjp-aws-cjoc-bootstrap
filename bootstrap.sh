@@ -23,3 +23,14 @@ sudo mount -t nfs 10.0.2.83:/var/lib/cjoc /var/lib/jenkins-oc
 
 # start Jenkins
 sudo service jenkins-oc start
+
+#install Amazon CloudWatch Monitoring Scripts
+sudo apt-get -y install unzip
+sudo apt-get -y install libwww-perl libdatetime-perl
+
+wget http://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.1.zip
+unzip CloudWatchMonitoringScripts-1.2.1.zip
+rm CloudWatchMonitoringScripts-1.2.1.zip
+
+#set a cron schedule for metrics reported to CloudWatch
+(crontab -l ; echo "*/5 * * * * ~/aws-scripts-mon/mon-put-instance-data.pl --mem-util --disk-space-util --disk-path=/ --from-cron") | crontab -
